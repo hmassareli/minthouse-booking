@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --green: 215, 225, 99;
+  --green-light: 244, 246, 211;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,6 +16,58 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+.date-calendar .MuiPickersDay-today {
+  border: 0px;
+  position: relative;
+}
+
+.date-calendar {
+  padding-left: 5px;
+}
+.date-calendar .MuiPickersDay-today::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  background-color: rgb(var(--green));
+  width: 5px;
+  height: 5px;
+  left: calc(50% - 2px);
+  border-radius: 50%;
+}
+.MuiPickersDay-root:hover {
+  background-color: rgb(var(--green-light)) !important;
+}
+.date-calendar .Mui-selected {
+  border: 0px;
+  background-color: rgb(var(--green)) !important;
+  color: white;
+  font-weight: 600 !important;
+}
+.MuiDayCalendar-weekContainer,
+.MuiDayCalendar-header {
+  justify-content: start;
+}
+.MuiPickersCalendarHeader-root {
+  padding-left: 5px;
+}
+.date-calendar .Mui-selected:hover {
+  background-color: rgb(var(--green));
+}
+
+.date-calendar .Mui-disabled {
+  background-color: rgb(var(--green-light));
+}
+
+.MuiPopover-paper option:hover {
+  background-color: rgb(234, 234, 234);
+}
+option {
+  cursor: pointer;
+}
+.MuiPaper-root ul {
+  padding: 0px;
 }
 
 body {
