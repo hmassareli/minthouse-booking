@@ -6,8 +6,10 @@ import dayjs from "dayjs";
 
 export default function BasicDateCalendar({
   disabledDays = [],
+  onChange = () => {},
 }: {
   disabledDays: Date[];
+  onChange: (value: Date | null) => void;
 }) {
   dayjs.locale("en");
 
@@ -19,6 +21,7 @@ export default function BasicDateCalendar({
             dayjs(disabledDate).isSame(date, "day")
           );
         }}
+        onChange={onChange}
         className="date-calendar"
         sx={{ margin: "0 0" }}
       />

@@ -19,7 +19,7 @@
 }
 
 .date-calendar .MuiPickersDay-today {
-  border: 0px;
+  border: 0px !important;
   position: relative;
 }
 
@@ -78,6 +78,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.right-container {
+  transition: all 0.5s ease-in-out;
 }
 
 @layer utilities {
