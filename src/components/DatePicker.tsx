@@ -32,6 +32,7 @@ export default function BasicDateCalendar({
         className="date-calendar"
         sx={{
           "& .MuiPickersCalendarHeader-root": { paddingLeft: "5px" },
+          "& .MuiPickersCalendarHeader-switchViewButton": { display: "none" },
           width: "auto",
           margin: "0 0",
         }}
