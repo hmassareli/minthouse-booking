@@ -13,6 +13,13 @@ export default function BasicDateCalendar({
   disabledDays: Date[];
   onChange: (value: Date | null) => void;
 }) {
+  const datePickerStyles = {
+    "& .MuiPickersCalendarHeader-root": { paddingLeft: "5px" },
+    "& .MuiPickersCalendarHeader-switchViewButton": { display: "none" },
+    width: "auto",
+    margin: "0 0",
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
@@ -26,12 +33,7 @@ export default function BasicDateCalendar({
         }}
         onChange={onChange}
         className="date-calendar"
-        sx={{
-          "& .MuiPickersCalendarHeader-root": { paddingLeft: "5px" },
-          "& .MuiPickersCalendarHeader-switchViewButton": { display: "none" },
-          width: "auto",
-          margin: "0 0",
-        }}
+        sx={datePickerStyles}
       />
     </LocalizationProvider>
   );
