@@ -4,9 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --green: 215, 225, 99;
+  --background-rgb: 240, 240, 240;
+  --green: 215, 225, 100;
   --green-light: 244, 246, 211;
 }
 
@@ -59,9 +58,15 @@
 .date-calendar .Mui-disabled {
   background-color: rgb(var(--green-light));
 }
+.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgb(var(--green)) !important;
+}
 
 .MuiPopover-paper option:hover {
   background-color: rgb(234, 234, 234);
+}
+.Mui-selected {
+  background-color: rgb(var(--green-light)) !important;
 }
 option {
   cursor: pointer;
@@ -72,14 +77,11 @@ option {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(var(--background-rgb));
 }
-
+.card {
+  box-shadow: 0px 0px 6px 0px rgba(181, 181, 181, 1);
+}
 .right-container {
   transition: all 0.5s ease-in-out;
 }

@@ -1,38 +1,53 @@
 "use client";
 import BasicDateCalendar from "@/components/DatePicker";
 import InputSelect from "@/components/InputSelect";
+import { MenuItem } from "@mui/material";
+import dayjs from "dayjs";
 import { useState } from "react";
 
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<string>("");
   const [isDaySelected, setIsDaySelected] = useState(false);
+  const [location, setLocation] = useState<string>("singapure");
+  const [duration, setDuration] = useState<string>("30");
+
   const handleChangeCalendar = (newValue: Date | null) => {
-    setSelectedDate(newValue);
+    setSelectedDate(dayjs(newValue).format("dddd, MMMM DD"));
     if (newValue) {
       setIsDaySelected(true);
     }
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-20">
-      <div className="bg-white rounded-lg w-auto min-h-[500px] max-w-[1200px] flex">
+      <div className="card bg-white rounded-lg w-auto min-h-[500px] max-w-[1200px] flex">
         <div className="p-6 min-w-[300px]">
           <h1 className="text-2xl font-extrabold mb-8">Book a Court</h1>
           <div className="mb-6">
-            <h2 className="mb-[4px] font-medium text-slate-600">Location</h2>
-            <InputSelect value="singapure" onChange={() => {}}>
-              <option value="singapure">Singapure</option>
-              <option value="brazil">Brazil</option>
+            <h2 className="mb-[4px]">Location</h2>
+            <InputSelect
+              value={location}
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            >
+              <MenuItem value="singapure">Singapure</MenuItem>
+              <MenuItem value="brazil">Brazil</MenuItem>
             </InputSelect>
           </div>
           <div>
-            <h2 className="mb-[4px] font-medium text-slate-600">Duration</h2>
-            <InputSelect value="30" onChange={() => {}}>
-              <option value="30">30 min</option>
-              <option value="60">60 min</option>
+            <h2 className="mb-[4px]">Duration</h2>
+            <InputSelect
+              value={duration}
+              onChange={(e) => {
+                setDuration(e.target.value);
+              }}
+            >
+              <MenuItem value="30">30 min</MenuItem>
+              <MenuItem value="60">60 min</MenuItem>
             </InputSelect>
           </div>
         </div>
-        <div className="right-container border-0 border-l-2 p-6 w-auto flex flex-col">
+        <div className="right-container border-0 border-l p-6 w-auto flex flex-col">
           <h1 className="text-1 font-extrabold leading-8 fle	">
             Pick a date and time
           </h1>
@@ -43,15 +58,15 @@ export default function Home() {
             />
             <div
               className={
-                (isDaySelected ? "block" : "hidden") + " p-4 min-w-[300px]"
+                (isDaySelected ? "block" : "hidden") + " p-4 min-w-[280px]"
               }
             >
-              <p className="mb-4 mt-[2px]">Saturday, January 27</p>
+              <p className="mb-4 mt-[2px]">{selectedDate}</p>
 
               {["10:00 am", "10:30 am", "11:00 am", "11:30 am", "12:00 pm"].map(
                 (time) => (
                   <div
-                    className="py-3 w-full text-center border-2 cursor-pointer hover:border-[#b7c050] hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
+                    className="flex items-center justify-center w-full text-center border cursor-pointer hover:border-[#b7c050] h-12 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
                     key={time}
                     onClick={() => console.log(time)}
                   >
