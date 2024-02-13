@@ -3,13 +3,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs from "dayjs";
-import updateLocale from "dayjs/plugin/updateLocale";
 
 dayjs.locale("en");
-dayjs.extend(updateLocale);
-dayjs.updateLocale("en", {
-  weekdaysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-});
+
 export default function BasicDateCalendar({
   disabledDays = [],
   onChange = () => {},
