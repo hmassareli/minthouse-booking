@@ -58,15 +58,16 @@ export default function Home() {
             />
             <div
               className={
-                (isDaySelected ? "block" : "hidden") + " p-4 min-w-[280px]"
+                (isDaySelected ? "w-[250px] px-4" : "!w-0 p-0") +
+                " overflow-hidden py-4 transition-all ease-out duration-200"
               }
             >
-              <p className="mb-4 mt-[2px]">{selectedDate}</p>
+              <p className="mb-4 w-full text-nowrap mt-[2px]">{selectedDate}</p>
 
               {["10:00 am", "10:30 am", "11:00 am", "11:30 am", "12:00 pm"].map(
                 (time) => (
                   <div
-                    className="flex items-center justify-center w-full text-center border cursor-pointer hover:border-[#b7c050] h-12 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
+                    className="flex items-center justify-center text-nowrap w-full min-w-[220px] text-center border cursor-pointer hover:border-[#b7c050] h-12 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
                     key={time}
                     onClick={() => console.log(time)}
                   >

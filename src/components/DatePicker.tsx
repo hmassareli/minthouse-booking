@@ -3,7 +3,13 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs from "dayjs";
+import updateLocale from "dayjs/plugin/updateLocale";
 
+dayjs.locale("en");
+dayjs.extend(updateLocale);
+dayjs.updateLocale("en", {
+  weekdaysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+});
 export default function BasicDateCalendar({
   disabledDays = [],
   onChange = () => {},
@@ -11,11 +17,12 @@ export default function BasicDateCalendar({
   disabledDays: Date[];
   onChange: (value: Date | null) => void;
 }) {
-  dayjs.locale("en");
-
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateCalendar
+        dayOfWeekFormatter={(day) => {
+          return day;
+        }}
         shouldDisableDate={(date: dayjs.Dayjs) => {
           return disabledDays.some((disabledDate) =>
             dayjs(disabledDate).isSame(date, "day")
@@ -23,7 +30,11 @@ export default function BasicDateCalendar({
         }}
         onChange={onChange}
         className="date-calendar"
-        sx={{ margin: "0 0" }}
+        sx={{
+          "& .MuiPickersCalendarHeader-root": { paddingLeft: "5px" },
+          width: "auto",
+          margin: "0 0",
+        }}
       />
     </LocalizationProvider>
   );
