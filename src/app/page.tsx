@@ -69,7 +69,7 @@ export default function Home() {
                 " overflow-hidden py-4 transition-all ease-out duration-200"
               }
             >
-              <p className="mb-[1.2rem] pl-[1px] w-full text-[17.5px] mt-[3px]">
+              <p className="mb-[1.2rem] pl-[1px] w-full text-[17.5px] text-nowrap mt-[3px]">
                 {selectedDate}
               </p>
 
