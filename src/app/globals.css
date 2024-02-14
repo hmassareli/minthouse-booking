@@ -78,11 +78,14 @@ body {
   color: black;
   background-size: 1200px;
   background-position: center;
+  background-repeat: no-repeat;
   background: rgb(var(--background-rgb));
+  /* background-image: url(./../../public/model.png); */
 }
 .card {
   box-shadow: 0px 0px 6px 0px rgba(181, 181, 181, 1);
   font-size: 18px;
+  /* opacity: 0.7; */
 }
 
 .MuiPickersArrowSwitcher-button {
@@ -119,14 +122,20 @@ body {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   .card {
     width: 100%;
     min-height: 100vh;
   }
-
+  .day-heading {
+    text-align: center;
+  }
+  .hide-on-mobile {
+    display: none;
+  }
   .right-container {
     padding: 0;
+    width: 100%;
     flex-direction: column;
     align-items: center;
   }
@@ -139,18 +148,20 @@ body {
     height: auto;
     align-items: center;
   }
-  .right-container > div > .date-calendar {
-    width: auto;
-  }
 
-  .MuiPickersDay-root.MuiButtonBase-root {
-    height: 38px;
-  }
   .left-container {
     width: 100%;
     min-width: auto;
   }
   .date-calendar .MuiPickersSlideTransition-root {
     height: 280px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .right-container > div .date-calendar {
+    width: auto;
+  }
+  .MuiPickersDay-root.MuiButtonBase-root {
+    height: 38px;
   }
 }
