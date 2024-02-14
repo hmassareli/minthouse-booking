@@ -162,6 +162,6 @@ body {
     width: auto;
   }
   .MuiPickersDay-root.MuiButtonBase-root {
-    height: 38px;
+    height: 38px !important;
   }
 }
