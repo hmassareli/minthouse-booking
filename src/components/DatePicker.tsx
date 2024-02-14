@@ -44,6 +44,7 @@ export default function BasicDateCalendar({
 
     "& .MuiPickersCalendarHeader-switchViewButton": { display: "none" },
     width: "410px",
+    overflow: "visible",
     margin: "0 0",
   };
 
