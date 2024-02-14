@@ -29,7 +29,7 @@ export default function InputSelect({
       <Select
         variant="outlined"
         value={value}
-        className="select-input w-full rounded-lg h-[46px] pl-1 pr-4 text-lg"
+        className="select-input w-full rounded-lg h-[46px] pl-1 pr-4 !text-lg"
         IconComponent={IconComponent}
         onChange={onChange}
       >
