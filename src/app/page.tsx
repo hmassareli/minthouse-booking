@@ -1,9 +1,23 @@
 "use client";
-import BasicDateCalendar from "@/components/DatePicker";
 import InputSelect from "@/components/InputSelect";
 import { MenuItem } from "@mui/material";
 import dayjs from "dayjs";
+import dynamic from "next/dynamic";
 import { useState } from "react";
+
+const DynamicCalendar = dynamic(() => import("./../components/DatePicker"), {
+  loading: () => <p>Loading...</p>,
+});
+
+function DateCalendar({
+  disabledDays = [],
+  onChange = () => {},
+}: {
+  disabledDays: Date[] | undefined;
+  onChange: (value: Date | null) => void;
+}) {
+  return <DynamicCalendar disabledDays={disabledDays} onChange={onChange} />;
+}
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState<string>("");
@@ -17,6 +31,7 @@ export default function Home() {
       setIsDaySelected(true);
     }
   };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <div className="card bg-white rounded-lg w-auto min-h-[750px] max-w-[1680px] flex">
@@ -59,13 +74,13 @@ export default function Home() {
               " flex justify-between mt-4 transition-all ease-out duration-200"
             }
           >
-            <BasicDateCalendar
+            <DateCalendar
               onChange={handleChangeCalendar}
               disabledDays={[new Date("2023-02-09")]}
             />
             <div
               className={
-                (isDaySelected ? "w-[300px] px-4" : "!w-0 p-0") +
+                (isDaySelected ? "w-[300px] px-4" : "!w-0 !h-0 p-0") +
                 " overflow-hidden py-4 transition-all ease-out duration-200"
               }
             >

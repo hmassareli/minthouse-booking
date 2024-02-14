@@ -1,3 +1,4 @@
+"use client";
 import { FormControl } from "@mui/material";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 

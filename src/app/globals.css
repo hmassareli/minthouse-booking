@@ -118,3 +118,39 @@ body {
     padding: 50px;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .right-container {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-container > div {
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .MuiDateCalendar-root .MuiDayCalendar-monthContainer *[role="row"] {
+    height: auto;
+    align-items: center;
+  }
+  .right-container > div > .date-calendar {
+    width: auto;
+  }
+
+  .MuiPickersDay-root.MuiButtonBase-root {
+    height: 38px;
+  }
+  .left-container {
+    width: 100%;
+    min-width: auto;
+  }
+  .date-calendar .MuiPickersSlideTransition-root {
+    height: 280px;
+  }
+}
