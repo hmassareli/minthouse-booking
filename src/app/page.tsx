@@ -74,12 +74,12 @@ export default function Home() {
               </p>
 
               {[
-                "10:00am",
-                "10:30am",
-                "11:00am",
-                "11:30am",
                 "12:00pm",
                 "12:30pm",
+                "1:00pm",
+                "1:30pm",
+                "2:00pm",
+                "2:30pm",
               ].map((time) => (
                 <div
                   className="flex items-center justify-center text-nowrap w-full min-w-[259px] text-center border cursor-pointer hover:border-[#b7c050] h-16 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
