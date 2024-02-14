@@ -56,10 +56,7 @@
 .Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: rgb(var(--green)) !important;
 }
-.date-calendar .MuiPickersDay-root {
-  width: 50px;
-  height: 50px;
-}
+
 .MuiPopover-paper option:hover {
   background-color: rgb(234, 234, 234);
 }
