@@ -14,9 +14,36 @@ export default function BasicDateCalendar({
   onChange: (value: Date | null) => void;
 }) {
   const datePickerStyles = {
-    "& .MuiPickersCalendarHeader-root": { paddingLeft: "5px" },
+    "& * ": { fontSize: "14px" },
+    "& .MuiPickersArrowSwitcher-root": {
+      paddingRight: "8px",
+    },
+    "& .MuiPickersArrowSwitcher-button": {
+      fontSize: "22px",
+      height: "35px",
+      width: "35px",
+    },
+    "& .MuiPickersSlideTransition-root": {
+      height: "400px",
+    },
+    "& .MuiDayCalendar-weekDayLabel": {
+      fontSize: "14px",
+    },
+    "& .MuiPickersCalendarHeader-root": {
+      paddingInline: 0,
+      marginBottom: "12px",
+      marginTop: "18px",
+      "& .MuiPickersCalendarHeader-label": {
+        fontSize: "17px",
+        paddingLeft: "8px",
+      },
+    },
+    "& .MuiPickersDay-root": {
+      fontSize: "14px",
+    },
+
     "& .MuiPickersCalendarHeader-switchViewButton": { display: "none" },
-    width: "auto",
+    width: "410px",
     margin: "0 0",
   };
 
