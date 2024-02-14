@@ -38,6 +38,8 @@
 }
 .MuiPickersDay-root:hover {
   background-color: rgb(var(--green-light)) !important;
+  color: rgb(var(--green));
+  font-weight: 600 !important;
 }
 .date-calendar .Mui-selected {
   border: 0px;
@@ -51,7 +53,9 @@
 }
 
 .date-calendar .Mui-disabled {
-  background-color: rgb(var(--green-light));
+  background-color: rgb(var(--green-light)) !important;
+  color: rgb(var(--green));
+  font-weight: 600 !important;
 }
 .Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: rgb(var(--green)) !important;
