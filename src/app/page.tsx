@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="card bg-white rounded-lg w-auto min-h-[750px] max-w-[1680px] flex">
+      <div className="card bg-white rounded-lg min-h-full w-auto xl:min-h-[750px] max-w-[1680px] flex">
         <div
           className={
             (isDaySelected ? "hide-on-mobile " : "") +
