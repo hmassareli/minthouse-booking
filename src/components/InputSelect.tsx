@@ -4,7 +4,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 export const IconComponent = () => {
   return (
     <svg
-      className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root cursor-pointer -rotate-90 text-2xl"
+      className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root cursor-pointer -rotate-90 w-8 h-8 "
       focusable="false"
       aria-hidden="true"
       viewBox="0 0 24 24"

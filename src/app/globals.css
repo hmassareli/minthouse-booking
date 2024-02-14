@@ -74,7 +74,7 @@ option {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: black;
   background: url("./../../public/model.png") no-repeat;
   background-size: 1200px;
   background-position: center;
