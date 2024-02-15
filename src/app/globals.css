@@ -52,7 +52,7 @@
   background-color: rgb(var(--green));
 }
 
-.date-calendar .Mui-disabled {
+.date-calendar .MuiPickersDay-root:not(.Mui-disabled):not(.Mui-selected) {
   background-color: rgb(var(--green-light)) !important;
   color: rgb(var(--green)) !important;
   font-weight: 600 !important;
@@ -64,9 +64,7 @@
 .MuiPopover-paper option:hover {
   background-color: rgb(234, 234, 234);
 }
-.Mui-selected {
-  background-color: rgb(var(--green-light)) !important;
-}
+
 option {
   cursor: pointer;
 }

@@ -5,18 +5,20 @@ import { IconComponent } from "@/components/IconComponent";
 import InputSelect from "@/components/InputSelect";
 import { MenuItem } from "@mui/material";
 import dayjs from "dayjs";
-import { useAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { useState } from "react";
 import BasicDateCalendar from "./../components/DatePicker";
 
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useAtom(dateAtom);
+  const [selectedDateString, setSelectedDateString] = useState<string>("");
   const [isDaySelected, setIsDaySelected] = useState(false);
   const [location, setLocation] = useAtom(locationAtom);
   const [duration, setDuration] = useAtom(durationAtom);
+  const setDate = useSetAtom(dateAtom);
 
   const handleChangeCalendar = (newValue: Date | null) => {
-    setSelectedDate(dayjs(newValue).format("dddd, MMMM DD"));
+    setDate(newValue);
+    setSelectedDateString(dayjs(newValue).format("dddd, MMMM DD"));
     if (newValue) {
       setIsDaySelected(true);
     }
@@ -89,7 +91,7 @@ export default function Home() {
             <div className={isDaySelected ? "hide-on-mobile" : ""}>
               <BasicDateCalendar
                 onChange={handleChangeCalendar}
-                disabledDays={[dayjs().subtract(1, "day").toDate()]}
+                availableDates={[dayjs().add(1, "day").toDate()]}
               />
             </div>
             <div
@@ -103,7 +105,7 @@ export default function Home() {
                   "day-heading mb-[1.2rem] pl-[1px] w-full text-[17.5px] text-nowrap mt-[3px]"
                 }
               >
-                {selectedDate}
+                {selectedDateString}
               </p>
 
               {[

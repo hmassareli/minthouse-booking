@@ -9,10 +9,10 @@ const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700", "500"] });
 dayjs.locale("en");
 
 export default function BasicDateCalendar({
-  disabledDays = [],
+  availableDates = [],
   onChange = () => {},
 }: {
-  disabledDays: Date[];
+  availableDates: Date[];
   onChange: (value: Date | null) => void;
 }) {
   const datePickerStyles = {
@@ -61,8 +61,8 @@ export default function BasicDateCalendar({
           return day;
         }}
         shouldDisableDate={(date: dayjs.Dayjs) => {
-          return disabledDays.some((disabledDate) =>
-            dayjs(disabledDate).isSame(date, "day")
+          return availableDates.some(
+            (availableDate) => !dayjs(availableDate).isSame(date, "day")
           );
         }}
         onChange={onChange}
