@@ -1,16 +1,19 @@
 "use client";
+import { dateAtom, durationAtom, locationAtom } from "@/atoms";
+import Card from "@/components/Card";
 import { IconComponent } from "@/components/IconComponent";
 import InputSelect from "@/components/InputSelect";
 import { MenuItem } from "@mui/material";
 import dayjs from "dayjs";
+import { useAtom } from "jotai";
 import { useState } from "react";
 import BasicDateCalendar from "./../components/DatePicker";
 
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedDate, setSelectedDate] = useAtom(dateAtom);
   const [isDaySelected, setIsDaySelected] = useState(false);
-  const [location, setLocation] = useState<string>("singapure");
-  const [duration, setDuration] = useState<string>("30");
+  const [location, setLocation] = useAtom(locationAtom);
+  const [duration, setDuration] = useAtom(durationAtom);
 
   const handleChangeCalendar = (newValue: Date | null) => {
     setSelectedDate(dayjs(newValue).format("dddd, MMMM DD"));
@@ -20,8 +23,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="card bg-white rounded-lg min-h-full w-auto xl:min-h-[750px] max-w-[1680px] flex">
+    <main className=" flex min-h-screen flex-col items-center justify-center">
+      <Card className="main-card">
         <div
           className={
             (isDaySelected ? "hide-on-mobile " : "") +
@@ -39,7 +42,7 @@ export default function Home() {
                 setLocation(e.target.value);
               }}
             >
-              <MenuItem value="singapure">Singapore</MenuItem>
+              <MenuItem value="singapore">Singapore</MenuItem>
               <MenuItem value="brazil">Brazil</MenuItem>
             </InputSelect>
           </div>
@@ -122,7 +125,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     </main>
   );
 }
