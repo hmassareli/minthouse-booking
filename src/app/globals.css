@@ -54,7 +54,7 @@
 
 .date-calendar .Mui-disabled {
   background-color: rgb(var(--green-light)) !important;
-  color: rgb(var(--green));
+  color: rgb(var(--green)) !important;
   font-weight: 600 !important;
 }
 .Mui-focused .MuiOutlinedInput-notchedOutline {

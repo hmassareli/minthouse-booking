@@ -86,7 +86,7 @@ export default function Home() {
             <div className={isDaySelected ? "hide-on-mobile" : ""}>
               <BasicDateCalendar
                 onChange={handleChangeCalendar}
-                disabledDays={[new Date("2023-02-09")]}
+                disabledDays={[dayjs().subtract(1, "day").toDate()]}
               />
             </div>
             <div
