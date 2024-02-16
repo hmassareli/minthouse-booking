@@ -85,6 +85,10 @@ body {
   font-size: 18px;
   /* opacity: 0.7; */
 }
+.MuiMenuItem-root.Mui-selected,
+.MuiMenuItem-root.Mui-selected:hover {
+  background: rgb(var(--green-light));
+}
 
 .MuiPickersArrowSwitcher-button {
   height: 40px;
