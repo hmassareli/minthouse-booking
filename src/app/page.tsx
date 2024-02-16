@@ -91,7 +91,10 @@ export default function Home() {
             <div className={isDaySelected ? "hide-on-mobile" : ""}>
               <BasicDateCalendar
                 onChange={handleChangeCalendar}
-                availableDates={[dayjs().add(1, "day").toDate()]}
+                availableDates={[
+                  dayjs().add(1, "day").toDate(),
+                  dayjs().add(2, "day").toDate(),
+                ]}
               />
             </div>
             <div

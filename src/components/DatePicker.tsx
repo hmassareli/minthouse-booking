@@ -61,8 +61,8 @@ export default function BasicDateCalendar({
           return day;
         }}
         shouldDisableDate={(date: dayjs.Dayjs) => {
-          return availableDates.some(
-            (availableDate) => !dayjs(availableDate).isSame(date, "day")
+          return !availableDates.some((availableDate) =>
+            dayjs(availableDate).isSame(date, "day")
           );
         }}
         onChange={onChange}
