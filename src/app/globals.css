@@ -7,6 +7,7 @@
   --background-rgb: 240, 240, 240;
   --green: 215, 225, 100;
   --green-light: 244, 246, 211;
+  --green-light-hover: 221 223 186;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,6 +57,12 @@
   background-color: rgb(var(--green-light)) !important;
   color: rgb(var(--green)) !important;
   font-weight: 600 !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.date-calendar .MuiPickersDay-root:not(.Mui-disabled):not(.Mui-selected):hover {
+  background-color: #e4e7a6 !important;
+  color: #a5ae47 !important;
 }
 .Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: rgb(var(--green)) !important;
