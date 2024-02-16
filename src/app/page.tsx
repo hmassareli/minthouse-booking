@@ -62,10 +62,10 @@ export default function Home() {
           </div>
         </div>
         <div className="right-container border-0 border-l p-5 pl-8 w-auto flex flex-col">
-          <div className="flex mt-4 gap-4 !w-full !flex-row justify-center md:justify-start items-center">
+          <div className="flex mt-4 relative gap-4 md:!w-full !flex-row justify-center md:justify-start items-center min-w-[300px] md:min-w-fit">
             <IconComponent
               className={
-                "cursor-pointer md:hidden rotate-90 justify-self-start " +
+                "cursor-pointer absolute left-3 md:hidden rotate-90 justify-self-start " +
                 (isDaySelected ? "" : "hidden")
               }
               onClick={() => {
