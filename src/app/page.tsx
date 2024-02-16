@@ -3,6 +3,12 @@ import { dateAtom, durationAtom, locationAtom } from "@/atoms";
 import Card from "@/components/Card";
 import { IconComponent } from "@/components/IconComponent";
 import InputSelect from "@/components/InputSelect";
+import {
+  getDatesForThisMonthByDay,
+  monthScheduleMock,
+  rangeOfAvailability,
+} from "@/mocks";
+import { getAvailableSlots } from "@/utils";
 import { MenuItem } from "@mui/material";
 import dayjs from "dayjs";
 import { useAtom, useSetAtom } from "jotai";
@@ -10,7 +16,9 @@ import { useState } from "react";
 import BasicDateCalendar from "./../components/DatePicker";
 
 export default function Home() {
-  const [selectedDateString, setSelectedDateString] = useState<string>("");
+  const [selectedDateString, setSelectedDateString] = useState<Date | null>(
+    null
+  );
   const [isDaySelected, setIsDaySelected] = useState(false);
   const [location, setLocation] = useAtom(locationAtom);
   const [duration, setDuration] = useAtom(durationAtom);
@@ -18,7 +26,7 @@ export default function Home() {
 
   const handleChangeCalendar = (newValue: Date | null) => {
     setDate(newValue);
-    setSelectedDateString(dayjs(newValue).format("dddd, MMMM DD"));
+    setSelectedDateString(newValue);
     if (newValue) {
       setIsDaySelected(true);
     }
@@ -53,7 +61,7 @@ export default function Home() {
             <InputSelect
               value={duration}
               onChange={(e) => {
-                setDuration(e.target.value);
+                setDuration(e.target.value as "30" | "60");
               }}
             >
               <MenuItem value="30">30 min</MenuItem>
@@ -84,23 +92,24 @@ export default function Home() {
           <div
             className={
               (isDaySelected ? "w-[745px]" : "w-[450px]") +
-              " flex justify-between mt-4 transition-all ease-out duration-200"
+              " flex justify-between mt-4 transition-all overflow-hidden ease-out duration-200"
             }
           >
             {" "}
             <div className={isDaySelected ? "hide-on-mobile" : ""}>
               <BasicDateCalendar
                 onChange={handleChangeCalendar}
-                availableDates={[
-                  dayjs().add(1, "day").toDate(),
-                  dayjs().add(2, "day").toDate(),
-                ]}
+                availableDates={getDatesForThisMonthByDay(
+                  Object.getOwnPropertyNames(monthScheduleMock).map((n) =>
+                    parseInt(n)
+                  )
+                )}
               />
             </div>
             <div
               className={
                 (isDaySelected ? "w-[300px] px-4" : "!w-0 !h-0 p-0") +
-                " overflow-hidden py-4 transition-all ease-out duration-200"
+                " py-4 transition-all ease-out duration-200 flex flex-col"
               }
             >
               <p
@@ -108,25 +117,25 @@ export default function Home() {
                   "day-heading mb-[1.2rem] pl-[1px] w-full text-[17.5px] text-nowrap mt-[3px]"
                 }
               >
-                {selectedDateString}
+                {dayjs(selectedDateString).format("dddd, MMMM DD")}
               </p>
-
-              {[
-                "12:00pm",
-                "12:30pm",
-                "1:00pm",
-                "1:30pm",
-                "2:00pm",
-                "2:30pm",
-              ].map((time) => (
-                <div
-                  className="flex items-center justify-center text-nowrap w-full min-w-[259px] text-center border cursor-pointer hover:border-[#b7c050] h-16 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
-                  key={time}
-                  onClick={() => console.log(time)}
-                >
-                  {time}
-                </div>
-              ))}
+              <div className="overflow-y-auto flex-1">
+                {getAvailableSlots(
+                  duration,
+                  Object.values(
+                    monthScheduleMock[dayjs(selectedDateString).date()] || []
+                  ),
+                  rangeOfAvailability
+                ).map((time) => (
+                  <div
+                    className="flex items-center justify-center text-nowrap w-full min-w-[259px] text-center border cursor-pointer hover:border-[#b7c050] h-16 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
+                    key={time.format("HH:mma")}
+                    onClick={() => console.log(time)}
+                  >
+                    {time.format("HH:mma")}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

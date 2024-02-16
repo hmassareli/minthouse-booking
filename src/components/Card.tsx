@@ -8,7 +8,7 @@ export default function Card({
   return (
     <div
       className={
-        "bg-white rounded-lg min-h-full w-auto xl:min-h-[750px] max-w-[1680px] flex " +
+        "bg-white rounded-lg h-full w-auto xl:h-[750px] max-w-[1680px] flex " +
         className
       }
     >

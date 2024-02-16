@@ -1,7 +1,14 @@
 import { atom } from "jotai";
 import { createPropertyAtom } from "./utils";
 
-export const MeetingAtom = atom({
+type meetingAtomTypes = {
+  date: Date | null;
+  time: Date | null;
+  location: string;
+  duration: "30" | "60";
+};
+
+export const MeetingAtom = atom<meetingAtomTypes>({
   date: new Date(),
   time: new Date(),
   location: "singapore",
