@@ -114,12 +114,13 @@ export default function Home() {
             >
               <p
                 className={
+                  (isDaySelected ? "" : "hide-on-mobile ") +
                   "day-heading mb-[1.2rem] pl-[1px] w-full text-[17.5px] text-nowrap mt-[3px]"
                 }
               >
                 {dayjs(selectedDateString).format("dddd, MMMM DD")}
               </p>
-              <div className="overflow-y-auto flex-1">
+              <div className="overflow-hidden overflow-y-auto flex-1">
                 {getAvailableSlots(
                   duration,
                   Object.values(
