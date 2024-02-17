@@ -1,5 +1,5 @@
 "use client";
-import { dateAtom, durationAtom, locationAtom, timeAtom } from "@/atoms";
+import { dateAtom, durationAtom, locationAtom } from "@/atoms";
 import Card from "@/components/Card";
 import { IconComponent } from "@/components/IconComponent";
 import InputSelect from "@/components/InputSelect";
@@ -22,7 +22,6 @@ export default function Home() {
   const [isDaySelected, setIsDaySelected] = useState(false);
   const [location, setLocation] = useAtom(locationAtom);
   const [duration, setDuration] = useAtom(durationAtom);
-  const [time, setTime] = useAtom(timeAtom);
   const setDate = useSetAtom(dateAtom);
 
   const handleChangeCalendar = (newValue: Date | null) => {
@@ -128,35 +127,15 @@ export default function Home() {
                     monthScheduleMock[dayjs(selectedDateString).date()] || []
                   ),
                   rangeOfAvailability
-                ).map((item) => {
-                  const formattedTime = item.format("HH:mma");
-                  const isSlotSelected = formattedTime === time;
-                  return (
-                    <div
-                      className="w-full gap-1 flex overflow-hidden"
-                      key={formattedTime}
-                    >
-                      <div
-                        className={
-                          (isSlotSelected ? "slot-selected" + " " : "") +
-                          "slot flex items-center justify-center text-nowrap w-full min-w-[259px] text-center border cursor-pointer hover:border-[#b7c050] h-16 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
-                        }
-                        onClick={() => setTime(formattedTime)}
-                      >
-                        {formattedTime}
-                      </div>
-                      <div
-                        onClick={() => {}}
-                        className={
-                          (!isSlotSelected && "hidden") +
-                          " h-16 flex transition-all duration-75 justify-center rounded-md items-center cursor-pointer hover:bg-[#b7c050] text-white font-medium bg-[#D7E164] w-1/2"
-                        }
-                      >
-                        Next
-                      </div>
-                    </div>
-                  );
-                })}
+                ).map((time) => (
+                  <div
+                    className="flex items-center justify-center text-nowrap w-full min-w-[259px] text-center border cursor-pointer hover:border-[#b7c050] h-16 hover:border-2 box-border hover:text-[#b7c050] border-green mb-4 rounded-md font-medium text-green"
+                    key={time.format("HH:mma")}
+                    onClick={() => console.log(time)}
+                  >
+                    {time.format("HH:mma")}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
