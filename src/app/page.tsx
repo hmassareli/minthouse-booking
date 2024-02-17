@@ -100,6 +100,13 @@ export default function Home() {
             }
           >
             {" "}
+            {JSON.stringify(
+              getDatesForThisMonthByDay(
+                Object.getOwnPropertyNames(monthScheduleMock).map((n) =>
+                  parseInt(n)
+                )
+              )
+            )}
             <div className={isDaySelected ? "hide-on-mobile" : ""}>
               <BasicDateCalendar
                 onChange={handleChangeCalendar}
