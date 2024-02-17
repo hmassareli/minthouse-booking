@@ -46,7 +46,7 @@ export default function Home() {
           }
         >
           <h1 className="text-[27px] mt-0 font-extrabold mb-10 leading-none ">
-            Book a Court {"isDaySelected" + isDaySelected ? "Yes" : "No"}
+            Book a Court isDaySelected{isDaySelected ? "Yes" : "No"}
           </h1>
           <div className="mb-4">
             <h2 className="mb-[5px] text-[1.2rem]">Location</h2>
