@@ -28,6 +28,7 @@ export default function Home() {
 
   const handleChangeCalendar = (newValue: Date | null) => {
     setDate(newValue);
+    setTime("");
     setSelectedDateString(newValue);
     if (newValue) {
       setIsDaySelected(true);
