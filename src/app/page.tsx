@@ -27,7 +27,6 @@ export default function Home() {
   const setDate = useSetAtom(dateAtom);
 
   const handleChangeCalendar = (newValue: Date | null) => {
-    console.log(newValue);
     setDate(newValue);
     setSelectedDateString(newValue);
     if (newValue) {
@@ -46,7 +45,7 @@ export default function Home() {
           }
         >
           <h1 className="text-[27px] mt-0 font-extrabold mb-10 leading-none ">
-            Book a Court {"isDaySelected" + isDaySelected ? "Yes" : "No"}
+            Book a Court
           </h1>
           <div className="mb-4">
             <h2 className="mb-[5px] text-[1.2rem]">Location</h2>
