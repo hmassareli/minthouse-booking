@@ -95,7 +95,7 @@ export default function Home() {
           <div
             className={
               (isDaySelected ? "w-[745px]" : "w-[450px]") +
-              " flex justify-between mt-4 transition-all overflow-hidden h-[500px] ease-out duration-200"
+              " flex justify-between mt-4 transition-all overflow-hidden min-h-[500px] ease-out duration-200"
             }
           >
             {" "}
