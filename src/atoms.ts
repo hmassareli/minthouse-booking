@@ -3,14 +3,14 @@ import { createPropertyAtom } from "./utils";
 
 type meetingAtomTypes = {
   date: Date | null;
-  time: string;
+  time: Date | null;
   location: string;
   duration: "30" | "60";
 };
 
 export const MeetingAtom = atom<meetingAtomTypes>({
   date: new Date(),
-  time: "",
+  time: new Date(),
   location: "singapore",
   duration: "30",
 });
