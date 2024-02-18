@@ -12,7 +12,7 @@ import { getAvailableSlots } from "@/utils";
 import { MenuItem } from "@mui/material";
 import dayjs from "dayjs";
 import { useAtom, useSetAtom } from "jotai";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import BasicDateCalendar from "./../components/DatePicker";
 
@@ -35,7 +35,6 @@ export default function Home() {
     }
   };
 
-  const router = useRouter();
   return (
     <main className=" flex min-h-screen flex-col items-center justify-center">
       <Card className="main-card">
@@ -148,15 +147,16 @@ export default function Home() {
                       >
                         {formattedTime}
                       </div>
-                      <div
-                        onClick={() => router.push("/user-info")}
+                      <Link
+                        href="/user-info"
+                        shallow
                         className={
                           (!isSlotSelected && "hidden") +
                           " h-16 flex transition-all duration-75 justify-center rounded-md items-center cursor-pointer hover:bg-[#b7c050] text-white font-medium bg-[#D7E164] w-1/2"
                         }
                       >
                         Next
-                      </div>
+                      </Link>
                     </div>
                   );
                 })}

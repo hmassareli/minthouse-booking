@@ -2,7 +2,10 @@ import { Provider } from "jotai";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700", "500"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "700", "500", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Minthouse Booking",
