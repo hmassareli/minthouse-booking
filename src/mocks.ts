@@ -6,8 +6,8 @@ const threeDaysLater = dayjs().add(4, "day").date();
 export const monthScheduleMock: {
   [key: number]: number[];
 } = {
-  [twoDaysLater]: [29, 32, 33],
-  [threeDaysLater]: [26, 27, 32, 33],
+  [21]: [29, 32, 33],
+  [22]: [26, 27, 32, 33],
 };
 
 export const getDatesForThisMonthByDay = (days: number[]) => {
