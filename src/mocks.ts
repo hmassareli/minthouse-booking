@@ -1,8 +1,5 @@
 import dayjs from "dayjs";
 
-const twoDaysLater = dayjs().add(2, "day").date();
-const threeDaysLater = dayjs().add(4, "day").date();
-
 export const monthScheduleMock: {
   [key: number]: number[];
 } = {
