@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import "./user-info.css";
 export default function UserInfo() {
-  const [meeting] = useAtom(MeetingAtom);
+  const [meeting, setMeeting] = useAtom(MeetingAtom);
   const [phone, setPhone] = useState("");
 
   const formattedDate = `${meeting.time} - ${dayjs(meeting.time, "HH:mma")
