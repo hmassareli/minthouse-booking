@@ -49,9 +49,6 @@
   font-weight: 600 !important;
 }
 
-.date-calendar .Mui-selected:hover {
-  background-color: rgb(var(--green));
-}
 .date-calendar .MuiPickersDay-root.Mui-disabled {
   color: rgb(125, 125, 125) !important;
 }
@@ -73,7 +70,9 @@
 .MuiPopover-paper option:hover {
   background-color: rgb(234, 234, 234);
 }
-
+.date-calendar .MuiMenuItem-root.Mui-selected {
+  background-color: rgb(var(--green)) !important;
+}
 option {
   cursor: pointer;
 }
@@ -109,7 +108,7 @@ body {
 }
 .MuiMenuItem-root.Mui-selected,
 .MuiMenuItem-root.Mui-selected:hover {
-  background: rgb(var(--green-light));
+  background-color: rgb(var(--green-light)) !important;
 }
 
 .MuiPickersArrowSwitcher-button {

@@ -4,6 +4,7 @@
   gap: 20px;
 }
 .appointment-details > div {
+  font-size: 16px;
   min-height: 40px;
   display: flex;
   align-items: center;
@@ -15,4 +16,47 @@
 }
 .appointment-details > div > svg {
   height: 100%;
+}
+
+.tel-input input {
+  padding-block: 12px;
+}
+.tel-input > div {
+  border-radius: 0.5rem;
+}
+
+.right-side {
+  font-size: 14px;
+}
+input[name="name"],
+input[name="email"] {
+  height: 46px;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 8px;
+  padding: 10px;
+  padding-inline: 16px;
+}
+
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 8px;
+  padding: 16px;
+}
+input[name="name"]:focus-visible,
+input[name="email"]:focus-visible,
+textarea:focus-visible {
+  outline: rgb(var(--green)) auto 1px !important;
+}
+
+.right-side p {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.right-side .MuiIconButton-root:hover {
+  background-color: transparent;
+}
+
+.right-side.MuiOutlinedInput-root:hover {
+  border-color: rgb(var(--green)) !important;
 }
